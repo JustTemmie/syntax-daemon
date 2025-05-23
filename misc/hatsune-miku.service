@@ -1,0 +1,20 @@
+[Unit]
+Description=Hatsune Miku!
+
+[Service]
+Type=simple
+
+ReadWritePaths=INSTALL_PATH
+WorkingDirectory=INSTALL_PATH
+ExecStart=INSTALL_PATH/venv/bin/python -u INSTALL_PATH/launcher.py
+NoNewPrivileges=true
+
+StartLimitIntervalSec=15
+StartLimitBurst=2880
+
+Nice=19
+SuccessExitStatus=130
+ProtectSystem=strict
+
+[Install]
+WantedBy=default.target
