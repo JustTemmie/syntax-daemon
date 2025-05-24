@@ -31,6 +31,8 @@ class LangageHandler:
         userID: int = None,
         interaction: discord.Interaction = None
     ) -> str:
+        return "en-GB"
+    
         language: str = None
         
         if userID is None and interaction:
