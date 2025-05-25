@@ -29,6 +29,13 @@ class MusicPlayer(commands.Cog):
     async def yup(self, ctx):
         await self.play_the_yup(ctx.guild)
     
+    @commands.command(name="test")
+    async def test_audio(self, ctx):
+        track = "/home/twig/Personal/discord-bots/syntax-daemon/assets/audio/yep.wav.mp3"
+        voice_client = await ctx.author.voice.channel.connect()
+        audio_source = discord.FFmpegPCMAudio(track)
+        voice_client.play(audio_source, after=lambda e: self.bot.loop.create_task(self.disconnect_after_playing(voice_client)))
+    
     async def play_the_yup(self, guild):
         members: list[discord.Member] = []
 
