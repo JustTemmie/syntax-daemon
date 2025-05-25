@@ -1,6 +1,7 @@
 import discord
 from discord.ext import commands, tasks
 
+import asyncio
 import time
 import random
 
@@ -47,14 +48,16 @@ class MusicPlayer(commands.Cog):
 
     async def disconnect_after_playing(self, voice_client):
         while voice_client.is_playing():
-            time.sleep(0.1)
+            await asyncio.sleep(0.1)
+        
+        await asyncio.sleep(1)
 
         await voice_client.disconnect()
     
     @tasks.loop(minutes=1)
     async def play_audio_task(self):
         for guild in self.bot.guilds:
-            if random.random() > 0.998:
+            if random.random() > 0.996:
                 await self.play_the_yup(guild)
         
 async def setup(bot):
