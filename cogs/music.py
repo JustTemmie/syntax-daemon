@@ -6,12 +6,12 @@ import time
 import random
 
 demons = [
-    "./syntax-daemon/assets/audio/nooo.wav.mp3",
-    "./syntax-daemon/assets/audio/nopeimplayingwithmacock.wav.mp3",
-    "./syntax-daemon/assets/audio/nopeimplayingwithmyrod.wav.mp3",
-    "./syntax-daemon/assets/audio/yeeeuup.wav.mp3",
-    "./syntax-daemon/assets/audio/yep.wav.mp3",
-    "./syntax-daemon/assets/audio/yip.wav.mp3",
+    "./assets/audio/nooo.wav.mp3",
+    "./assets/audio/nopeimplayingwithmacock.wav.mp3",
+    "./assets/audio/nopeimplayingwithmyrod.wav.mp3",
+    "./assets/audio/yeeeuup.wav.mp3",
+    "./assets/audio/yep.wav.mp3",
+    "./assets/audio/yip.wav.mp3",
 ]
 
 class MusicPlayer(commands.Cog):
@@ -31,7 +31,7 @@ class MusicPlayer(commands.Cog):
     
     @commands.command(name="test")
     async def test_audio(self, ctx):
-        track = "./syntax-daemon/assets/audio/yep.wav.mp3"
+        track = "./assets/audio/yep.wav.mp3"
         voice_client = await ctx.author.voice.channel.connect()
         audio_source = discord.FFmpegPCMAudio(track)
         voice_client.play(audio_source, after=lambda e: self.bot.loop.create_task(self.disconnect_after_playing(voice_client)))
