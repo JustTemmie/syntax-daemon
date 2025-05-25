@@ -20,21 +20,21 @@ class MusicPlayer(commands.Cog):
         self.play_audio_task.start()
     
 
-    @commands.command(
-        name="yup",
-        brief="yup",
-        description="yep mmhm",
-        extras={"page": "main", "category":"music"}
-    )
-    async def yup(self, ctx):
-        await self.play_the_yup(ctx.guild)
+    # @commands.command(
+    #     name="yup",
+    #     brief="yup",
+    #     description="yep mmhm",
+    #     extras={"page": "main", "category":"music"}
+    # )
+    # async def yup(self, ctx):
+    #     await self.play_the_yup(ctx.guild)
     
-    @commands.command(name="test")
-    async def test_audio(self, ctx):
-        track = "./assets/audio/yep.wav.mp3"
-        voice_client = await ctx.author.voice.channel.connect()
-        audio_source = discord.FFmpegPCMAudio(track)
-        voice_client.play(audio_source, after=lambda e: self.bot.loop.create_task(self.disconnect_after_playing(voice_client)))
+    # @commands.command(name="test")
+    # async def test_audio(self, ctx):
+    #     track = "./assets/audio/yep.wav.mp3"
+    #     voice_client = await ctx.author.voice.channel.connect()
+    #     audio_source = discord.FFmpegPCMAudio(track)
+    #     voice_client.play(audio_source, after=lambda e: self.bot.loop.create_task(self.disconnect_after_playing(voice_client)))
     
     async def play_the_yup(self, guild):
         members: list[discord.Member] = []
@@ -57,8 +57,6 @@ class MusicPlayer(commands.Cog):
         while voice_client.is_playing():
             await asyncio.sleep(0.1)
         
-        await asyncio.sleep(1)
-
         await voice_client.disconnect()
     
     @tasks.loop(minutes=1)
