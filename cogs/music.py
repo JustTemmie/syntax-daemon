@@ -39,12 +39,12 @@ class MusicPlayer(commands.Cog):
     # async def yup(self, ctx):
     #     await self.play_the_yup(ctx.guild)
     
-    @commands.command(name="test")
-    async def test_audio(self, ctx: commands.Context):
-        print(self.epic_sounds)
-        song = random.choice(self.legendary_sounds)
-        song = "assets/audio/legendary/NRK Dagsrevyen - New Intro (2015) [_Kuip3SSeCI].mp3"
-        await self.play_sound(ctx.guild, song)
+    # @commands.command(name="test")
+    # async def test_audio(self, ctx: commands.Context):
+    #     print(self.epic_sounds)
+    #     song = random.choice(self.legendary_sounds)
+    #     song = "assets/audio/legendary/NRK Dagsrevyen - New Intro (2015) [_Kuip3SSeCI].mp3"
+    #     await self.play_sound(ctx.guild, song)
     
     async def play_sound(self, guild, sound):
         print(f"playing {sound} in {guild}")
