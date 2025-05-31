@@ -75,16 +75,16 @@ class MusicPlayer(commands.Cog):
     @tasks.loop(minutes=1)
     async def play_audio_task(self):
         for guild in self.bot.guilds:
-            if random.random() > 0.997:
+            if random.random() > 0.999:
                 await self.play_sound(guild, random.choice(self.common_sounds))
             
-            if random.random() > 0.9995:
+            if random.random() > 0.9999:
                 await self.play_sound(guild, random.choice(self.rare_sounds))
             
-            if random.random() > 0.9999:
+            if random.random() > 0.99995:
                 await self.play_sound(guild, random.choice(self.epic_sounds))
 
-            if random.random() > 0.99999:
+            if random.random() > 0.999999:
                 await self.play_sound(guild, random.choice(self.legendary_sounds))
         
 async def setup(bot):
